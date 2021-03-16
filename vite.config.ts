@@ -15,6 +15,6 @@ export default defineConfig({
       { find: '@layout', replacement: getPath('src/layout') },
       { find: '@styles', replacement: getPath('src/assets/styles') },
       { find: '@images', replacement: getPath('src/assets/images') },
-    ]
-  }
-})
+    ],
+  },
+});

@@ -2,15 +2,15 @@ import React from 'react';
 import Routes from './routes';
 
 interface Props {
-  store: string
+  store: string;
 }
 
 function App({ store }: Props) {
   return (
     // <Provider store={store}>
     // </Provider>
-      <Routes />
-  )
+    <Routes />
+  );
 }
 
 export default App;
