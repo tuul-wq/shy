@@ -1,5 +1,10 @@
 :root {
   //Colors
-
   --midnight-lacquer: rgb(30, 30, 30);
+
+  // Media
+  --mq-mini: 320px;
+  --mq-phone: 375px;
+  --mq-tablet: 768px;
+  --mq-laptop: 1200px;
 }

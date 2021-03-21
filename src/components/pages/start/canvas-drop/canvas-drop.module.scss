@@ -1,0 +1,25 @@
+.canvas {
+  position: absolute;
+  background-color: #828282;
+  // background-color: honeydew;
+  z-index: -1;
+}
+
+.helperArea {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 50%;
+
+  .btn {
+    .image {
+      display: block;
+    }
+
+    .text {
+      font-size: 20px;
+      font-weight: 500;
+      // color: white;
+    }
+  }
+}

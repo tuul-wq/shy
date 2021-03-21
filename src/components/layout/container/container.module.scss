@@ -1,0 +1,20 @@
+@import '@styles/mixins';
+
+.centerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  .container {
+    position: relative;
+    overflow: hidden;
+    min-height: 550px;
+    border: 1px solid green;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+    padding: 20px;
+
+    @include margin-x(max(10px, calc(50% - 400px)));
+  }
+}

@@ -1,0 +1,18 @@
+@import '@styles/mixins';
+
+.startContainer {
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  height: 100%;
+
+  .canvas {
+    @include size(calc(100% - 40px));
+  }
+
+  .examples {
+    margin-top: auto;
+
+    @include margin-x(40px);
+  }
+}

@@ -1,0 +1,48 @@
+@import '@styles/mixins';
+
+.borders {
+  display: block;
+  width: 82%;
+
+  @include margin-x(auto);
+}
+
+.innerContent {
+  text-align: center;
+  background-color: #5eb0fc;
+  padding-bottom: 10px;
+  border-radius: 70px;
+
+  .text {
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .cats {
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+      outline-offset: 5px;
+
+      .cat {
+        height: 90px;
+        width: 120px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.8);
+        filter: brightness(90%);
+        transition: all 0.4s cubic-bezier(0.39, 0.58, 0.57, 1);
+      }
+
+      &:hover .cat,
+      &:focus .cat {
+        filter: brightness(100%);
+        transform: scale(1.03);
+        box-shadow: 0 0 18px 4px rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
+}

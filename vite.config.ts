@@ -11,8 +11,8 @@ export default defineConfig({
     alias: [
       { find: '@', replacement: getPath('src') },
       { find: '@components', replacement: getPath('src/components') },
-      { find: '@common', replacement: getPath('src/common') },
-      { find: '@layout', replacement: getPath('src/layout') },
+      { find: '@common', replacement: getPath('src/components/common') },
+      { find: '@layout', replacement: getPath('src/components/layout') },
       { find: '@styles', replacement: getPath('src/assets/styles') },
       { find: '@images', replacement: getPath('src/assets/images') },
     ],

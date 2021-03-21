@@ -1,3 +1,5 @@
-# Shy
+# Shy kitty
 
-Period tracker
+- Identify your kitty
+- Apply filters
+- Get simillar kitties

@@ -1,20 +1,21 @@
 {
-  "name": "shy",
+  "name": "shy-kitty",
   "version": "1.0.0",
-  "description": "Period tracker",
+  "description": "Kitty analyzer",
   "author": "Yaroslav Grachev",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "lint": "eslint src/**/*.{tsx,ts,js}",
+    "lint": "eslint \"src/**/*.{tsx,ts,js}\"",
     "stylelint": "stylelint src/**/*.scss",
-    "lint:fix": "npm run lint -- --fix",
-    "stylelint:fix": "npm run stylelint -- --fix",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,md}\""
+    "lint:fix": "yarn lint --fix",
+    "stylelint:fix": "yarn stylelint --fix",
+    "prettier": "prettier --write \"**/*.{tsx,ts,js,json,scss,md}\""
   },
   "dependencies": {
+    "clsx": "^1.1.1",
     "mobx": "^6.1.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -46,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tuul-wq/shy.git"
+    "url": "git+https://github.com/tuul-wq/shy-kitty.git"
   },
   "husky": {
     "hooks": {
@@ -56,21 +57,14 @@
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "{additional,scripts}/**/*.{js,ts,tsx,json,md}": [
-      "prettier --write",
-      "git add"
+      "eslint --fix"
     ],
     "src/**/*.{css,scss}": [
       "prettier --write",
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ],
     "*.{json,js,ts,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }

@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin font-face($family, $path, $weight, $style: normal) {
   @font-face {
     font-family: $family;
@@ -5,5 +7,54 @@
     font-weight: $weight;
     font-display: swap;
     src: url('../fonts/#{$path}-#{$weight}.woff2') format('woff2');
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin margin-x($margin) {
+  margin-right: $margin;
+  margin-left: $margin;
+}
+
+@mixin margin-y($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+@mixin padding-x($padding) {
+  padding-right: $padding;
+  padding-left: $padding;
+}
+
+@mixin padding-y($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+// @mixin mq-mini() {
+//   @media screen and (min-width: $MQ-Mini) {
+//     @content;
+//   }
+// }
+
+@mixin mq-phone() {
+  @media screen and (min-width: var(--mq-phone)) {
+    @content;
+  }
+}
+
+@mixin mq-tablet() {
+  @media screen and (min-width: var(--mq-tablet)) {
+    @content;
+  }
+}
+
+@mixin mq-laptop() {
+  @media screen and (min-width: var(--mq-laptop)) {
+    @content;
   }
 }
