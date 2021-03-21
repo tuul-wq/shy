@@ -1,7 +1,8 @@
+@import '@styles/mixins';
+
 .canvas {
   position: absolute;
   background-color: #828282;
-  // background-color: honeydew;
   z-index: -1;
 }
 
@@ -11,15 +12,31 @@
   top: 30%;
   left: 50%;
 
-  .btn {
+  .fileLabel {
+    cursor: pointer;
+    display: block;
+
     .image {
       display: block;
+      margin-bottom: 10px;
+
+      @include margin-x(auto);
     }
 
     .text {
-      font-size: 20px;
-      font-weight: 500;
-      // color: white;
+      font-size: 18px;
+      color: white;
+    }
+  }
+
+  .fileInput {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+
+    &:focus ~ .fileLabel {
+      outline-style: auto;
+      outline-offset: 5px;
     }
   }
 }
