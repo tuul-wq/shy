@@ -5,7 +5,7 @@
   "author": "Yaroslav Grachev",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port=2020",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint": "eslint \"src/**/*.{tsx,ts,js}\"",

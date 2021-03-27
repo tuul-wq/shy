@@ -10,7 +10,7 @@ function Start() {
     <main className={styles.startContainer}>
       <Logo />
       <CanvasDrop className={styles.canvas} />
-      <Examples className={styles.examples} />
+      {/* <Examples className={styles.examples} /> */}
     </main>
   );
 }

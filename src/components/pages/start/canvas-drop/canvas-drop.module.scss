@@ -1,42 +1,47 @@
 @import '@styles/mixins';
 
-.canvas {
-  position: absolute;
-  background-color: #828282;
-  z-index: -1;
-}
+.dropContainer {
+  @include size(100%);
 
-.helperArea {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 30%;
-  left: 50%;
-
-  .fileLabel {
-    cursor: pointer;
-    display: block;
-
-    .image {
-      display: block;
-      margin-bottom: 10px;
-
-      @include margin-x(auto);
-    }
-
-    .text {
-      font-size: 18px;
-      color: white;
-    }
+  .canvas {
+    position: absolute;
+    background-color: gray;
+    // background-color: rgb(255, 106, 166, 0.8);
+    z-index: -1;
   }
 
-  .fileInput {
+  .helperArea {
     position: absolute;
-    opacity: 0;
-    width: 0;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
 
-    &:focus ~ .fileLabel {
-      outline-style: auto;
-      outline-offset: 5px;
+    .fileLabel {
+      cursor: pointer;
+      display: block;
+
+      .image {
+        display: block;
+        margin-bottom: 10px;
+
+        @include margin-x(auto);
+      }
+
+      .text {
+        font-size: 18px;
+        color: white;
+      }
+    }
+
+    .fileInput {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+
+      &:focus ~ .fileLabel {
+        outline-style: auto;
+        outline-offset: 5px;
+      }
     }
   }
 }

@@ -1,18 +1,30 @@
-import React, { ChangeEvent, HTMLAttributes } from 'react';
-import cn from 'clsx';
+import React, { ChangeEvent, HTMLAttributes, useEffect, useRef, useState } from 'react';
 
 import addPhoto from '@images/icons/add_photo.svg';
+import Canvas from './canvas';
 import styles from './canvas-drop.module.scss';
 
 function CanvasDrop({ className }: HTMLAttributes<HTMLDivElement>) {
+  const sectionRef = useRef<HTMLDivElement>(null!);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    setSize({
+      width: sectionRef.current.clientWidth,
+      height: sectionRef.current.clientHeight,
+    });
+  }, []);
+
   const handleFile = (event: ChangeEvent<HTMLInputElement>) => {
     const x = event.target.files;
     console.log('🚀 ~ file: canvas-drop.tsx ~ line 10 ~ handleFile ~ x', x);
   };
 
   return (
-    <section className={styles.dropContainer}>
-      <canvas className={cn(styles.canvas, className)}></canvas>
+    <section ref={sectionRef} className={styles.dropContainer}>
+      {(size.width || size.height) && (
+        <Canvas className={className} width={size.width} height={size.height} />
+      )}
       <div className={styles.helperArea}>
         <input
           id="file"
