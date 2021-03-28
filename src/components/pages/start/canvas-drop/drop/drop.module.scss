@@ -1,0 +1,62 @@
+@import '@styles/mixins';
+
+.dropArea {
+  display: flex;
+  justify-content: center;
+  height: -webkit-fill-available;
+
+  &::before {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background-color: rgba(202, 202, 202, 0.15);
+    border: 2px dashed rgb(54, 54, 54);
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: all 0.4s ease-out;
+    pointer-events: none;
+  }
+
+  &.active::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .inputContainer {
+    margin-top: 100px;
+    margin-bottom: auto;
+
+    .fileLabel {
+      cursor: pointer;
+      display: block;
+
+      .image {
+        display: block;
+        margin-bottom: 10px;
+
+        @include margin-x(auto);
+      }
+
+      .text {
+        font-size: 18px;
+        color: white;
+      }
+    }
+
+    .fileInput {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+
+      &:focus ~ .fileLabel {
+        outline-style: auto;
+        outline-offset: 5px;
+      }
+    }
+  }
+}

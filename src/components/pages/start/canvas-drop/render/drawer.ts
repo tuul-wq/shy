@@ -23,16 +23,16 @@ class Drawer {
     const configureObject = (length: number, type: BlobType) => {
       const isMainType = type === 'main';
 
-      return Array.from({ length }).map((_) => {
-        const radius = isMainType ? randomRange(80, 150) : randomRange(10, 50);
+      return Array.from({ length }).map((_, index) => {
+        const radius = isMainType ? index * 20 + 80 : randomRange(10, 50);
         const speed = isMainType ? randomRange(0.1, 0.5, true) : randomRange(0.3, 0.8, true);
 
         return new Blob(this.ctx, { type, canvasWidth, canvasHeight, color, sides, radius, speed });
       });
     };
 
-    const mainBlobs = configureObject(4, 'main');
-    const secondaryBlobs = configureObject(randomRange(15, 25), 'secondary');
+    const mainBlobs = configureObject(3, 'main');
+    const secondaryBlobs = configureObject(randomRange(20, 30), 'secondary');
 
     this.canvasObjects.push(...mainBlobs, ...secondaryBlobs);
   }

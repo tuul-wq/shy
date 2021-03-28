@@ -32,7 +32,7 @@ class Blob implements IDrawable {
       : randomRange(0, this.config.canvasWidth);
 
     this.posY = this.isMainType
-      ? this.config.canvasHeight / 3.2
+      ? this.config.canvasHeight / 3.5
       : randomRange(0, this.config.canvasHeight);
 
     this.ctx.fillStyle = this.config.color;

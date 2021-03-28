@@ -1,8 +1,8 @@
 import React, { CanvasHTMLAttributes, useEffect, useRef } from 'react';
 import cn from 'clsx';
 
-import Drawer from './render/drawer';
-import styles from './canvas-drop.module.scss';
+import Drawer from '../render/drawer';
+import styles from './canvas.module.scss';
 
 function Canvas({ className, width, height }: CanvasHTMLAttributes<HTMLCanvasElement>) {
   const canvasRef = useRef<HTMLCanvasElement>(null!);
