@@ -2,16 +2,18 @@ import React from 'react';
 import Routes from './routes';
 
 import Container from '@layout/container/container';
+import { stores, StoresContext } from '@/store/types';
+import { controllers, ControllersContext } from '@/controllers/types';
 
-interface Props {
-  store: string;
-}
-
-function App({ store }: Props) {
+function App() {
   return (
-    <Container>
-      <Routes />
-    </Container>
+    <StoresContext.Provider value={stores}>
+      <ControllersContext.Provider value={controllers}>
+        <Container>
+          <Routes />
+        </Container>
+      </ControllersContext.Provider>
+    </StoresContext.Provider>
   );
 }
 

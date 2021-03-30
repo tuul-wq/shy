@@ -1,11 +1,14 @@
-import React, { ChangeEvent, DragEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, DragEvent, useCallback, useContext, useState } from 'react';
+import { observer } from 'mobx-react-lite';
 import cn from 'clsx';
 
 import addPhoto from '@images/icons/add_photo.svg';
 import styles from './drop.module.scss';
+import { StoresContext } from '@/store/types';
 
 function Drop() {
   const [dropZone, setDropZone] = useState(false);
+  const { kittyStore } = useContext(StoresContext);
 
   const handleDragOver = useCallback((event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -27,12 +30,18 @@ function Drop() {
   // const handleDrop = useCallback((event: DragEvent) => {
   const handleDrop = useCallback((event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    const file = event.dataTransfer?.files.item(0);
+    const file = event.dataTransfer.files.item(0)!;
+
+    kittyStore.setFileImage(file);
     setDropZone(false);
   }, []);
 
   const handleFile = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.item(0);
+    const file = event.target.files!.item(0)!;
+
+    kittyStore.setFileImage(file);
+    // setNewKitty(file);
+    // setNew
     // lastModified: 1617034578000
     // name: "Screenshot 2021-03-29 at 7.16.15 PM.png"
     // size: 57013
@@ -64,4 +73,4 @@ function Drop() {
   );
 }
 
-export default Drop;
+export default observer(Drop);

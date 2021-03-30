@@ -59,16 +59,7 @@ class Blob implements IDrawable {
       const cpX = 2 * x1 - x0 / 2 - x2 / 2;
       const cpY = 2 * y1 - y0 / 2 - y2 / 2;
 
-      this.sides.push({
-        x0,
-        x2,
-        cpX,
-        midX,
-        y0,
-        y2,
-        cpY,
-        midY,
-      });
+      this.sides.push({ x0, x2, cpX, midX, y0, y2, cpY, midY });
     }
   }
 
