@@ -1,10 +1,9 @@
 import React, { CanvasHTMLAttributes, useEffect, useRef } from 'react';
-import cn from 'clsx';
 
 import Drawer from '../render/drawer';
 import styles from './canvas.module.scss';
 
-function Canvas({ className, width, height }: CanvasHTMLAttributes<HTMLCanvasElement>) {
+function Canvas({ width, height }: CanvasHTMLAttributes<HTMLCanvasElement>) {
   const canvasRef = useRef<HTMLCanvasElement>(null!);
 
   useEffect(() => {
@@ -14,14 +13,7 @@ function Canvas({ className, width, height }: CanvasHTMLAttributes<HTMLCanvasEle
     drawer.start();
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className={cn(styles.canvas, className)}
-      width={width}
-      height={height}
-    ></canvas>
-  );
+  return <canvas ref={canvasRef} className={styles.canvas} width={width} height={height}></canvas>;
 }
 
 function scaleCanvas(canvas: HTMLCanvasElement) {

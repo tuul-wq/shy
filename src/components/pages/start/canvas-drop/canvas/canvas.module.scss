@@ -1,4 +1,8 @@
+@import '@styles/mixins';
+
 .canvas {
   position: absolute;
   z-index: -1;
+
+  @include size(100%);
 }

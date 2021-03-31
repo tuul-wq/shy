@@ -1,15 +1,15 @@
 import React from 'react';
 
 import Logo from '@/components/common/logo/logo';
-import Examples from './examples/examples';
+// import Examples from './examples/examples';
 import CanvasDrop from './canvas-drop/canvas-drop';
-import styles from './start.module.scss';
+// import styles from './start.module.scss';
 
 function Start() {
   return (
-    <main className={styles.startContainer}>
+    <main>
       <Logo />
-      <CanvasDrop className={styles.canvas} />
+      <CanvasDrop />
       {/* <Examples className={styles.examples} /> */}
     </main>
   );

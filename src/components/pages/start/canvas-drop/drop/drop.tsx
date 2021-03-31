@@ -1,14 +1,16 @@
 import React, { ChangeEvent, DragEvent, useCallback, useContext, useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useHistory } from 'react-router';
 import cn from 'clsx';
 
 import addPhoto from '@images/icons/add_photo.svg';
+import { ControllersContext } from '@/controllers/types';
 import styles from './drop.module.scss';
-import { StoresContext } from '@/store/types';
 
 function Drop() {
+  const history = useHistory();
   const [dropZone, setDropZone] = useState(false);
-  const { kittyStore } = useContext(StoresContext);
+  const { kittyController } = useContext(ControllersContext);
 
   const handleDragOver = useCallback((event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -27,25 +29,20 @@ function Drop() {
     setDropZone(false);
   }, []);
 
-  // const handleDrop = useCallback((event: DragEvent) => {
   const handleDrop = useCallback((event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     const file = event.dataTransfer.files.item(0)!;
 
-    kittyStore.setFileImage(file);
     setDropZone(false);
+    kittyController.handleNewFile(file);
+    history.push('editor');
   }, []);
 
   const handleFile = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files!.item(0)!;
 
-    kittyStore.setFileImage(file);
-    // setNewKitty(file);
-    // setNew
-    // lastModified: 1617034578000
-    // name: "Screenshot 2021-03-29 at 7.16.15 PM.png"
-    // size: 57013
-    // type: "image/png"
+    kittyController.handleNewFile(file);
+    history.push('editor');
   };
 
   return (

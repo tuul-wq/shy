@@ -6,6 +6,12 @@ const getPath = (filePath: string) => path.resolve(__dirname, filePath);
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    https: {
+      cert: __dirname + '/cert/server.crt',
+      key: __dirname + '/cert/server.key',
+    },
+  },
   plugins: [reactRefresh()],
   resolve: {
     alias: [
