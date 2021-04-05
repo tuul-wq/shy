@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { StoresContext } from '@/store/types';
 import styles from './image-info.module.scss';
 
-function ImageInfo() {
+function Info() {
   const { kittyStore } = useContext(StoresContext);
 
   return (
@@ -17,4 +17,4 @@ function ImageInfo() {
   );
 }
 
-export default ImageInfo;
+export default Info;

@@ -1,29 +1,36 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import ImageEditor from './image-editor/image-editor';
-import ImageInfo from './image-info/image-info';
-import { StoresContext } from '@/store/types';
+import Filter from './filter/filter';
+import Info from './info/info';
 import styles from './editor.module.scss';
 
 function Editor() {
-  const { kittyStore } = useContext(StoresContext);
-  const history = useHistory();
-
-  if (!kittyStore.fileImage) {
-    history.push('/');
-
-    return null;
-  }
-
   return (
     <>
+      <nav className={styles.navigation}>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
+            <NavLink to="filter" className={styles.link} activeClassName={styles.active}>
+              Filter
+            </NavLink>
+          </li>
+          <li className={styles.navItem}>
+            <NavLink to="info" className={styles.link} activeClassName={styles.active}>
+              Info
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
       <main>
-        <ImageEditor />
+        <Switch>
+          <Route path="/editor/filter" component={Filter} />
+          <Route path="/editor/info" component={Info} />
+
+          <Redirect from="/editor" to="/editor/filter" />
+        </Switch>
       </main>
-      <aside>
-        <ImageInfo />
-      </aside>
     </>
   );
 }

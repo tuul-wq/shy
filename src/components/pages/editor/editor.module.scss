@@ -1,3 +1,35 @@
-div {
-  color: green;
+.navigation {
+  padding: 10px;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  height: 42px;
+
+  .link {
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    min-width: 60px;
+    color: grey;
+    text-align: center;
+    outline-offset: -5px;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+    transition-property: font-size, font-weight;
+  }
+
+  &:hover .link,
+  .link.active {
+    font-size: 18px;
+    font-weight: 500;
+    color: inherit;
+  }
 }

@@ -7,7 +7,7 @@ export interface IStoresContextValue {
 }
 
 export const StoresContext = createContext<IStoresContextValue | null>(
-  null,
+  null
 ) as Context<IStoresContextValue>;
 
 export const stores: IStoresContextValue = {
