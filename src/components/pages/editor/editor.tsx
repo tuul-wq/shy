@@ -4,25 +4,12 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Filter from './filter/filter';
 import Info from './info/info';
-import styles from './editor.module.scss';
+import Navigation from './navigation/navigation';
 
 function Editor() {
   return (
     <>
-      <nav className={styles.navigation}>
-        <ul className={styles.navList}>
-          <li className={styles.navItem}>
-            <NavLink to="filter" className={styles.link} activeClassName={styles.active}>
-              Filter
-            </NavLink>
-          </li>
-          <li className={styles.navItem}>
-            <NavLink to="info" className={styles.link} activeClassName={styles.active}>
-              Info
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Navigation />
       <main>
         <Switch>
           <Route path="/editor/filter" component={Filter} />
