@@ -10,12 +10,16 @@ function Navigation() {
       <ul className={styles.navList}>
         <li className={styles.navItem}>
           <NavLink to="filter" className={styles.link} activeClassName={styles.active}>
-            Filter
+            <div className={styles.backgroundShadow}></div>
+            <div className={styles.cornerShadow}></div>
+            <p className={styles.linkText}>Filter</p>
           </NavLink>
         </li>
         <li className={styles.navItem}>
           <NavLink to="info" className={styles.link} activeClassName={styles.active}>
-            Info
+            <div className={styles.backgroundShadow}></div>
+            <div className={styles.cornerShadow}></div>
+            <p className={styles.linkText}>Info</p>
           </NavLink>
         </li>
       </ul>

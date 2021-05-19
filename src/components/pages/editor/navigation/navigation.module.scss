@@ -17,56 +17,72 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease-in;
 
-  &::after {
-    content: '';
-    position: absolute;
-    opacity: 0;
-    top: 30%;
-    width: 90%;
-    height: 60%;
-    right: 5%;
-    background: linear-gradient(-90deg, #833ab4, #4694fc);
-    filter: blur(15px);
-    transition: all 0.3s ease-in;
-    z-index: -1;
-  }
-
   .link {
-    display: inline-block;
-    position: relative;
-    font-size: 16px;
-    font-weight: 400;
+    display: block;
     text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: white;
-    mask-image: radial-gradient(white, black);
+    border-radius: inherit;
 
-    @include padding-y(10px);
-    @include size(100%);
+    .linkText {
+      position: relative;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
 
-    &::before {
-      content: '';
+      @include padding-y(10px);
+    }
+
+    .cornerShadow {
+      // position: absolute;
+      // background-color: white;
+      // overflow: hidden;
+      // mask-image: radial-gradient(white, black);
+      // border-radius: 8px;
+
+      // @include absoluteCover;
+
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   width: 60px;
+      //   height: 100px;
+      //   right: 0;
+      //   opacity: 0;
+      //   background: linear-gradient(0deg, rgb(131, 58, 180) 0%, rgb(70, 148, 252) 100%);
+      //   transform: translate(10px, -65px) rotate(-65deg);
+      //   transition: opacity 0.3s ease-in;
+      //   filter: blur(20px);
+      // }
+    }
+
+    .backgroundShadow {
       position: absolute;
       opacity: 0;
-      width: 60px;
-      height: 100px;
-      right: 0;
-      background: linear-gradient(0deg, rgb(131, 58, 180) 0%, rgb(70, 148, 252) 100%);
-      transform: translate(10px, -65px) rotate(-65deg);
+      top: 30%;
+      width: 90%;
+      height: 60%;
+      right: 5%;
+      // background: linear-gradient(-90deg, #833ab4, #4694fc);
+      background: green;
+      filter: blur(15px);
       transition: opacity 0.3s ease-in;
-      filter: blur(20px);
+      backface-visibility: hidden;
     }
+
+    &:hover,
+    &.active {
+      .cornerShadow::before,
+      .backgroundShadow {
+        opacity: 1;
+      }
+    }
+
+    // &:focus .linkText {
+    //   outline-style: auto;
+    // }
   }
 
   &:hover {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  &:hover::after,
-  &:hover .link::before {
-    opacity: 1;
   }
 }
 
